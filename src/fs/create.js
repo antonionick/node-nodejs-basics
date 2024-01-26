@@ -12,7 +12,7 @@ const create = async () => {
     const doesExist = await checkIfFileOrFolderExist(filePath);
 
     if (doesExist) {
-        throw new Error('FS operation failed');
+        throw new Error(FS_ERROR_MESSAGE);
     }
 
     await fs.writeFile(filePath, FILE_CONTENT)

@@ -16,7 +16,7 @@ const rename = async () => {
     const doesRenamedFileExist = await checkIfFileOrFolderExist(renamedFilePath);
 
     if (!doesFileToRenameExist || doesRenamedFileExist) {
-        throw new Error('FS operation failed');
+        throw new Error(FS_ERROR_MESSAGE);
     }
 
     await fs.rename(fileToRenamePath, renamedFilePath);

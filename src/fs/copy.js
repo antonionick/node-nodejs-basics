@@ -1,6 +1,6 @@
 import * as  path from 'path';
 import * as  fs from 'fs/promises';
-import { FILES_FOLDER_NAME } from './constants.js';
+import { FILES_FOLDER_NAME, FS_ERROR_MESSAGE } from './constants.js';
 import { getDirname, checkIfFileOrFolderExist } from './utils.js';
 
 const COPY_FOLDER_NAME = `${FILES_FOLDER_NAME}_copy`;
@@ -15,7 +15,7 @@ const copy = async () => {
     const doesCopyFolderExist = await checkIfFileOrFolderExist(copyFolderPath);
 
     if (!doesFolderToCopyExist || doesCopyFolderExist) {
-        throw new Error('FS operation failed');
+        throw new Error(FS_ERROR_MESSAGE);
     }
 
     await fs.mkdir(copyFolderPath);
