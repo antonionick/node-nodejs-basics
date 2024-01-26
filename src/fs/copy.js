@@ -1,14 +1,14 @@
 import * as  path from 'path';
 import * as  fs from 'fs/promises';
+import { FILES_FOLDER_NAME } from './constants.js';
 import { getDirname, checkIfFileOrFolderExist } from './utils.js';
 
-const FOLDER_NAME = 'files';
-const COPY_FOLDER_NAME = `${FOLDER_NAME}_copy`;
+const COPY_FOLDER_NAME = `${FILES_FOLDER_NAME}_copy`;
 
 const copy = async () => {
     const dirname = getDirname();
 
-    const folderToCopyPath = path.join(dirname, FOLDER_NAME);
+    const folderToCopyPath = path.join(dirname, FILES_FOLDER_NAME);
     const copyFolderPath = path.join(dirname, COPY_FOLDER_NAME);
 
     const doesFolderToCopyExist = await checkIfFileOrFolderExist(folderToCopyPath);
