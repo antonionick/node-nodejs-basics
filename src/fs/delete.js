@@ -1,5 +1,20 @@
+import * as  fs from 'fs/promises';
+import * as  path from 'path';
+import { FILES_FOLDER_NAME } from './constants.js';
+import { getDirname, checkIfFileOrFolderExist } from './utils.js';
+
+const FILE_TO_REMOVE_NAME = 'fileToRemove.txt';
+
 const remove = async () => {
-    // Write your code here 
+    const dirname = getDirname();
+    const fileToRemovePath = path.join(dirname, FILES_FOLDER_NAME, FILE_TO_REMOVE_NAME);
+
+    const doesFileExist = await checkIfFileOrFolderExist(fileToRemovePath);
+    if (!doesFileExist) {
+        throw new Error('FS operation failed');
+    }
+
+    await fs.rm(fileToRemovePath);
 };
 
 await remove();
