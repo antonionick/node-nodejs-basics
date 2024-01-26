@@ -6,7 +6,7 @@ const parseEnv = () => {
     const valueToLog = process.argv
         .slice(2)
         .filter(value => value.startsWith(PREFIX))
-        .reduce((acc, value) => acc ? `${acc}; ${value}` : value, '');
+        .join('; ');
 
     console.log(valueToLog);
 };
