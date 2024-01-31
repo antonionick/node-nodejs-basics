@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs/promises';
-import { FILES_FOLDER_NAME } from './constants.js';
+import { FILES_FOLDER_NAME } from '../constants.js';
 import { getDirname, checkIfFileOrFolderExist } from '../utils.js';
 
 const FILE_NAME_TO_CREATE = 'fresh.txt';

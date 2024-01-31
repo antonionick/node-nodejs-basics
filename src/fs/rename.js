@@ -1,6 +1,6 @@
 import * as fs from 'fs/promises';
 import * as  path from 'path';
-import { FILES_FOLDER_NAME, FS_ERROR_MESSAGE } from './constants.js';
+import { FILES_FOLDER_NAME, FS_ERROR_MESSAGE } from '../constants.js';
 import { getDirname, checkIfFileOrFolderExist } from '../utils.js';
 
 const FILE_NAME_TO_RENAME = 'wrongFilename.txt';
