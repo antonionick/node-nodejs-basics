@@ -1,9 +1,11 @@
 import * as os from 'os';
 import * as path from 'path';
 import * as http from 'http';
-import * as  fs from 'fs';
+// import * as  fs from 'fs';
 import './files/c.js';
 import { getFilename, getDirname } from '../utils.js';
+import a from './files/a.json' with { type: 'json' };
+import b from './files/b.json' with { type: 'json' };
 
 console.log(`Release ${os.release()}`);
 console.log(`Version ${os.version()}`);
@@ -15,10 +17,11 @@ console.log(`Path to current file is ${getFilename(import.meta.url)}`);
 console.log(`Path to current directory is ${dirName}`);
 
 const random = Math.random();
-const filename = random > .5 ? 'a.json' : 'b.json';
-const filePath = path.resolve(dirName, 'files', filename);
+// const filename = random > .5 ? 'a.json' : 'b.json';
+// const filePath = path.resolve(dirName, 'files', filename);
 
-export const unknownObject = fs.readFileSync(filePath).toString();
+// export const unknownObject = fs.readFileSync(filePath).toString();
+export const unknownObject = random > .5 ? a : b;
 
 console.log(unknownObject);
 
