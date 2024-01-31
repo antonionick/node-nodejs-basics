@@ -1,12 +1,12 @@
 import * as  path from 'path';
 import * as  fs from 'fs/promises';
 import { FILES_FOLDER_NAME, FS_ERROR_MESSAGE } from './constants.js';
-import { getDirname, checkIfFileOrFolderExist } from './utils.js';
+import { getDirname, checkIfFileOrFolderExist } from '../utils.js';
 
 const COPY_FOLDER_NAME = `${FILES_FOLDER_NAME}_copy`;
 
 const copy = async () => {
-    const dirname = getDirname();
+    const dirname = getDirname(import.meta.url);
 
     const folderToCopyPath = path.join(dirname, FILES_FOLDER_NAME);
     const copyFolderPath = path.join(dirname, COPY_FOLDER_NAME);

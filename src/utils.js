@@ -2,10 +2,9 @@ import * as path from 'path';
 import * as  fs from 'fs/promises';
 import { fileURLToPath } from 'node:url';
 
-export const getDirname = () => {
-	const fileName = fileURLToPath(import.meta.url);
-	return path.dirname(fileName);
-};
+export const getFilename = metaUrl => fileURLToPath(metaUrl);
+
+export const getDirname = metaUrl => path.dirname(getFilename(metaUrl));
 
 export const checkIfFileOrFolderExist = async pathToCheck => {
 	try {
